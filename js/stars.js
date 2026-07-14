@@ -3,13 +3,21 @@ const openedStars = new Set();
 let sunriseStarted = false;
 
 function openNightScene() {
-  document.getElementById("nightScene").classList.remove("hidden");
+  const nightScene = document.getElementById("nightScene");
+  if (nightScene) {
+    nightScene.classList.remove("hidden");
+  }
 }
 
 function openStarMemory(type, starElement) {
   const box = document.getElementById("starMemory");
   const title = document.getElementById("starMemoryTitle");
   const text = document.getElementById("starMemoryText");
+
+  if (!box || !title || !text || !starElement) {
+    console.log("Star memory elements are missing");
+    return;
+  }
 
   const memories = {
     one: {
@@ -134,6 +142,11 @@ Every single time. ❤️`
     }
   };
 
+  if (!memories[type]) {
+    console.log("Memory not found for:", type);
+    return;
+  }
+
   if (activeStar) {
     activeStar.classList.remove("active-star");
   }
@@ -146,8 +159,8 @@ Every single time. ❤️`
 
   const rect = starElement.getBoundingClientRect();
 
-  const boxWidth = 520;
-  const boxHeight = 420;
+  const boxWidth = Math.min(window.innerWidth * 0.82, 360);
+  const boxHeight = Math.min(window.innerHeight * 0.68, 420);
 
   let left = rect.left + 30;
   let top = rect.top + 30;
@@ -174,19 +187,33 @@ Every single time. ❤️`
 
   openedStars.add(type);
 
-  openedStars.add(type);
-
-if (type === "nine" && !sunriseStarted) {
-  sunriseStarted = true;
-
-  setTimeout(() => {
-    box.classList.remove("show");
+  /*
+    IMPORTANT:
+    Sunrise ending starts ONLY when the 9th star is opened.
+    It does not wait for all stars anymore.
+  */
+  if (type === "nine" && !sunriseStarted) {
+    sunriseStarted = true;
 
     setTimeout(() => {
-      box.classList.add("hidden");
-      openEndingScene();
-    }, 800);
-  }, 7000);
+      box.classList.remove("show");
+
+      if (activeStar) {
+        activeStar.classList.remove("active-star");
+        activeStar = null;
+      }
+
+      setTimeout(() => {
+        box.classList.add("hidden");
+
+        if (typeof openEndingScene === "function") {
+          openEndingScene();
+        } else {
+          console.log("openEndingScene function is missing");
+        }
+      }, 800);
+    }, 5000);
+  }
 }
 
 document.addEventListener("click", function(event) {
@@ -212,5 +239,15 @@ document.addEventListener("click", function(event) {
 });
 
 function closeNightScene() {
-  document.getElementById("nightScene").classList.add("hidden");
+  const nightScene = document.getElementById("nightScene");
+  if (nightScene) {
+    nightScene.classList.add("hidden");
+  }
 }
+
+/*
+  This makes sure the functions work even if your HTML uses onclick.
+*/
+window.openNightScene = openNightScene;
+window.openStarMemory = openStarMemory;
+window.closeNightScene = closeNightScene;

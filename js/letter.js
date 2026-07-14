@@ -30,15 +30,21 @@ function openEnvelope() {
 
 function closeLetterScene() {
   const overlay = document.getElementById("transitionOverlay");
+  const world = document.getElementById("world");
   const letterScene = document.getElementById("letterScene");
   const nightScene = document.getElementById("nightScene");
   const envelope = document.querySelector(".envelope");
   const paper = document.getElementById("letterPaper");
 
   overlay.classList.remove("hidden");
-  overlay.classList.add("show");
 
   setTimeout(() => {
+    overlay.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    world.classList.add("hidden");
+
     paper.classList.add("hidden");
     paper.classList.remove("show");
 
@@ -51,7 +57,7 @@ function closeLetterScene() {
 
   setTimeout(() => {
     overlay.classList.remove("show");
-  }, 500);
+  }, 520);
 
   setTimeout(() => {
     overlay.classList.add("hidden");

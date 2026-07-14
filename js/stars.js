@@ -186,24 +186,8 @@ if (type === "nine" && !sunriseStarted) {
       box.classList.add("hidden");
       openEndingScene();
     }, 800);
-  }, 4000);
+  }, 7000);
 }
-
-This will make it work like this:
-
-The sunrise transition will happen only after the 9th star opens.
-
-The message will stay visible for 4 seconds, then it will close and transition to the sunrise ending.
-
-You can change this number if you want the 9th message to stay longer:
-
-}, 4000);
-
-For example:
-
-}, 6000);
-
-means 6 seconds.
 
 document.addEventListener("click", function(event) {
   const box = document.getElementById("starMemory");

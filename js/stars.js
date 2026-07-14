@@ -135,14 +135,41 @@ Every single time. ❤️`
   };
 
   if (activeStar) {
-    activeStar.classList.remove("active-star");
+  activeStar.classList.remove("active-star");
+}
+
+activeStar = starElement;
+activeStar.classList.add("active-star");
+
+if (type === "nine") {
+  box.classList.remove("show");
+  box.classList.add("hidden");
+
+  const finalMessage = document.getElementById("finalStarMessage");
+  finalMessage.classList.remove("hidden");
+
+  setTimeout(() => {
+    finalMessage.classList.add("show");
+  }, 50);
+
+  if (!sunriseStarted) {
+    sunriseStarted = true;
+
+    setTimeout(() => {
+      finalMessage.classList.remove("show");
+
+      setTimeout(() => {
+        finalMessage.classList.add("hidden");
+        openEndingScene();
+      }, 1200);
+    }, 9000);
   }
 
-  activeStar = starElement;
-  activeStar.classList.add("active-star");
+  return;
+}
 
-  title.innerText = memories[type].title;
-  text.innerText = memories[type].text;
+title.innerText = memories[type].title;
+text.innerText = memories[type].text;
 
   const rect = starElement.getBoundingClientRect();
 

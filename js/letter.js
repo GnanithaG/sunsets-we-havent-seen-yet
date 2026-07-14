@@ -36,10 +36,7 @@ function closeLetterScene() {
   const paper = document.getElementById("letterPaper");
 
   overlay.classList.remove("hidden");
-
-  setTimeout(() => {
-    overlay.classList.add("show");
-  }, 20);
+  overlay.classList.add("show");
 
   setTimeout(() => {
     paper.classList.add("hidden");
@@ -50,13 +47,13 @@ function closeLetterScene() {
 
     letterScene.classList.add("hidden");
     nightScene.classList.remove("hidden");
-  }, 750);
+  }, 350);
 
   setTimeout(() => {
     overlay.classList.remove("show");
-  }, 900);
+  }, 500);
 
   setTimeout(() => {
     overlay.classList.add("hidden");
-  }, 1800);
+  }, 900);
 }

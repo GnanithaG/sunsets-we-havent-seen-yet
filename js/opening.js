@@ -41,7 +41,7 @@ function showOpeningLine() {
     } else {
       setTimeout(enterWorld, 1200);
     }
-  }, 3600);
+  }, 3700);
 }
 
 openingText.innerText = openingLines[0];
@@ -54,4 +54,4 @@ setTimeout(() => {
   openingText.classList.remove("text-visible");
   lineIndex = 1;
   setTimeout(showOpeningLine, 800);
-}, 3600);
+}, 3700);

@@ -198,21 +198,6 @@ text.innerText = memories[type].text;
   setTimeout(() => {
     box.classList.add("show");
   }, 20);
-
-  openedStars.add(type);
-
-  if (openedStars.size === 9 && !sunriseStarted) {
-    sunriseStarted = true;
-
-    setTimeout(() => {
-      box.classList.remove("show");
-
-      setTimeout(() => {
-        box.classList.add("hidden");
-        openEndingScene();
-      }, 600);
-    }, 9000);
-  }
 }
 
 document.addEventListener("click", function(event) {

@@ -1,4 +1,5 @@
 let activeStar = null;
+const openedStars = new Set();
 let sunriseStarted = false;
 
 function openNightScene() {
@@ -9,7 +10,6 @@ function openStarMemory(type, starElement) {
   const box = document.getElementById("starMemory");
   const title = document.getElementById("starMemoryTitle");
   const text = document.getElementById("starMemoryText");
-  const finalMessage = document.getElementById("finalStarMessage");
 
   const memories = {
     one: {
@@ -116,6 +116,21 @@ Until then...
 
 I'll keep saving sunsets
 for us.`
+    },
+
+    nine: {
+      title: "For Every Sunset We Haven't Seen Yet",
+      text: `If life gave me
+
+another chance...
+
+another lifetime...
+
+I'd still choose you.
+
+I'd still fall in love with you.
+
+Every single time. ❤️`
     }
   };
 
@@ -126,39 +141,13 @@ for us.`
   activeStar = starElement;
   activeStar.classList.add("active-star");
 
-  if (type === "nine") {
-    box.classList.remove("show");
-    box.classList.add("hidden");
-
-    finalMessage.classList.remove("hidden");
-
-    setTimeout(() => {
-      finalMessage.classList.add("show");
-    }, 50);
-
-    if (!sunriseStarted) {
-      sunriseStarted = true;
-
-      setTimeout(() => {
-        finalMessage.classList.remove("show");
-
-        setTimeout(() => {
-          finalMessage.classList.add("hidden");
-          openEndingScene();
-        }, 1200);
-      }, 9000);
-    }
-
-    return;
-  }
-
   title.innerText = memories[type].title;
   text.innerText = memories[type].text;
 
   const rect = starElement.getBoundingClientRect();
 
-  const boxWidth = 360;
-  const boxHeight = 260;
+  const boxWidth = 520;
+  const boxHeight = 420;
 
   let left = rect.left + 30;
   let top = rect.top + 30;
@@ -182,13 +171,26 @@ for us.`
   setTimeout(() => {
     box.classList.add("show");
   }, 20);
+
+  openedStars.add(type);
+
+  if (openedStars.size === 9 && !sunriseStarted) {
+    sunriseStarted = true;
+
+    setTimeout(() => {
+      box.classList.remove("show");
+
+      setTimeout(() => {
+        box.classList.add("hidden");
+        openEndingScene();
+      }, 800);
+    }, 11000);
+  }
 }
 
 document.addEventListener("click", function(event) {
   const box = document.getElementById("starMemory");
-  const finalMessage = document.getElementById("finalStarMessage");
 
-  if (finalMessage && finalMessage.classList.contains("show")) return;
   if (!box || box.classList.contains("hidden")) return;
 
   const clickedStar = event.target.closest(".memory-star");
@@ -202,7 +204,12 @@ document.addEventListener("click", function(event) {
       activeStar = null;
     }
 
-    setTimeout(() => box.classList.add("hidden"), 350);
+    setTimeout(() => {
+      box.classList.add("hidden");
+    }, 350);
   }
+});
+
+function closeNightScene() {
+  document.getElementById("nightScene").classList.add("hidden");
 }
-);

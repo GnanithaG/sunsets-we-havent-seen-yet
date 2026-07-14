@@ -212,7 +212,7 @@ Every single time. ❤️`
           console.log("openEndingScene function is missing");
         }
       }, 800);
-    }, 5000);
+    }, 7000);
   }
 }
 

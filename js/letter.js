@@ -42,8 +42,7 @@ function closeLetterScene() {
     overlay.classList.add("show");
   }, 10);
 
- setTimeout(() => {
-
+  setTimeout(() => {
     world.classList.add("hidden");
 
     paper.classList.add("hidden");
@@ -54,13 +53,13 @@ function closeLetterScene() {
 
     letterScene.classList.add("hidden");
     nightScene.classList.remove("hidden");
+  }, 180);
 
-},180);
-
-setTimeout(() => {
+  setTimeout(() => {
     overlay.classList.remove("show");
-},260);
+  }, 260);
 
-setTimeout(() => {
+  setTimeout(() => {
     overlay.classList.add("hidden");
-},420);
+  }, 420);
+}

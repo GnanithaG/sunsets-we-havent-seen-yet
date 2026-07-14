@@ -59,3 +59,11 @@ body {
 .transition-overlay.show {
   opacity: 1;
 }
+* {
+  caret-color: transparent;
+}
+
+input,
+textarea {
+  caret-color: auto;
+}

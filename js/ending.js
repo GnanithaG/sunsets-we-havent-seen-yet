@@ -16,15 +16,15 @@ function openEndingScene() {
     endingScene.classList.remove("hidden");
 
     document.title = "See you at the next one 🌅";
-  }, 350);
+ },180);
 
-  setTimeout(() => {
+setTimeout(() => {
     overlay.classList.remove("show");
-  }, 520);
+},260);
 
-  setTimeout(() => {
+setTimeout(() => {
     overlay.classList.add("hidden");
-  }, 900);
+},420);
 }
 
 function closeEndingScene() {

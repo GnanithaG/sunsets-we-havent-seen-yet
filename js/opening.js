@@ -30,28 +30,28 @@ function showOpeningLine() {
   setTimeout(() => {
     openingText.innerText = openingLines[lineIndex];
     openingText.classList.add("text-visible");
-  }, 600);
+  }, 750);
 
   setTimeout(() => {
     openingText.classList.remove("text-visible");
     lineIndex++;
 
     if (lineIndex < openingLines.length) {
-      setTimeout(showOpeningLine, 750);
+      setTimeout(showOpeningLine, 800);
     } else {
       setTimeout(enterWorld, 1200);
     }
-  }, 3800);
+  }, 3600);
 }
 
 openingText.innerText = openingLines[0];
 
 setTimeout(() => {
   openingText.classList.add("text-visible");
-}, 400);
+}, 500);
 
 setTimeout(() => {
   openingText.classList.remove("text-visible");
   lineIndex = 1;
-  setTimeout(showOpeningLine, 750);
-}, 3800);
+  setTimeout(showOpeningLine, 800);
+}, 3600);

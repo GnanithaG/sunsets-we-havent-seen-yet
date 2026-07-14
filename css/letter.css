@@ -26,7 +26,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #0f5b43, #083325);
+  background: linear-gradient(145deg, #D97706, #083325);
   border-radius: 14px;
 }
 
@@ -37,7 +37,7 @@
   background:
     linear-gradient(135deg, transparent 49.5%, rgba(255,255,255,.18) 50%, transparent 50.5%),
     linear-gradient(225deg, transparent 49.5%, rgba(0,0,0,.28) 50%, transparent 50.5%),
-    linear-gradient(to bottom, #126548, #083325);
+    linear-gradient(to bottom, #C96B3B, #A9551A);
   clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
   border-radius: 14px;
 }
@@ -152,7 +152,7 @@
   padding: 13px 34px;
   border-radius: 999px;
   border: 1px solid rgba(15, 79, 59, .35);
-  background: #0f4f3b;
+  background: #D97706;
   color: #f8efd9;
   font-family: "Cormorant Garamond", serif;
   font-size: 1.35rem;

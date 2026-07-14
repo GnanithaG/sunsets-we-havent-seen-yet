@@ -57,17 +57,17 @@
   animation-delay: 5s;
 }
 
-.green-heart {
+.orange-heart {
   left: 50%;
   top: 78%;
   font-size: 6rem;
-  color: #0f7b5a;
+  color: #D97706;
   opacity: 0;
   transform: translate(420px, -50%);
   text-shadow:
-    0 0 25px rgba(15,123,90,.95),
-    0 0 60px rgba(15,123,90,.55);
-  animation: greenMeet 5s ease forwards;
+    0 0 25px rgba(217,119,6,.95),
+    0 0 60px rgba(217,119,6,.55);
+  animation: orangeMeet 5s ease forwards;
   animation-delay: 5s;
 }
 
@@ -101,7 +101,7 @@
   }
 }
 
-@keyframes greenMeet {
+@keyframes orangeMeet {
   0% {
     opacity: 0;
     transform: translate(420px, -50%) scale(1);

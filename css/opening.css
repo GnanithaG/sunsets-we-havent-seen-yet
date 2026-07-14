@@ -1,0 +1,45 @@
+.opening {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle, #1b1035, #05010f 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.2s ease;
+}
+
+.opening-fade-out {
+  opacity: 0;
+}
+
+.opening p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 0 24px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.opening p.text-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.world-fade-in {
+  animation: worldFadeIn 1.4s ease forwards;
+}
+
+@keyframes worldFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}

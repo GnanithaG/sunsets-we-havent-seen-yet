@@ -1,0 +1,151 @@
+.ending-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  background:
+    linear-gradient(rgba(5, 3, 18, 0.18), rgba(5, 3, 18, 0.42)),
+    url("../assets/images/sunrise.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ending-text {
+  text-align: center;
+  color: white;
+  text-shadow: 0 8px 35px rgba(0,0,0,0.55);
+  animation: endingTextIn 2.2s ease forwards;
+  animation-delay: 1.8s;
+  opacity: 0;
+}
+
+.ending-text h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 500;
+}
+
+.ending-text p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem;
+  margin-top: 18px;
+}
+
+.heart-fusion {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+}
+
+.red-heart {
+  left: 50%;
+  top: 78%;
+  font-size: 6rem;
+  color: #8e1f34;
+  opacity: 0;
+  transform: translate(-420px, -50%);
+  text-shadow:
+    0 0 25px rgba(142,31,52,.95),
+    0 0 60px rgba(142,31,52,.55);
+  animation: redMeet 5s ease forwards;
+  animation-delay: 5s;
+}
+
+.green-heart {
+  left: 50%;
+  top: 78%;
+  font-size: 6rem;
+  color: #0f7b5a;
+  opacity: 0;
+  transform: translate(420px, -50%);
+  text-shadow:
+    0 0 25px rgba(15,123,90,.95),
+    0 0 60px rgba(15,123,90,.55);
+  animation: greenMeet 5s ease forwards;
+  animation-delay: 5s;
+}
+
+.gold-heart {
+  left: 50%;
+  top: 78%;
+  opacity: 0;
+  font-size: 10rem;
+  transform: translate(-50%, -50%) scale(.2);
+  color: #f4c56a;
+  text-shadow:
+    0 0 35px rgba(244,197,106,.95),
+    0 0 120px rgba(244,197,106,.75);
+  animation: goldAppear 2.5s ease forwards;
+  animation-delay: 10s;
+}
+
+@keyframes redMeet {
+  0% {
+    opacity: 0;
+    transform: translate(-420px, -50%) scale(1);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.7);
+  }
+}
+
+@keyframes greenMeet {
+  0% {
+    opacity: 0;
+    transform: translate(420px, -50%) scale(1);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.7);
+  }
+}
+
+@keyframes goldAppear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.2);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+@keyframes endingTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

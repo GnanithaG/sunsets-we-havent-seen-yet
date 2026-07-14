@@ -1,0 +1,152 @@
+.night-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  background:
+    linear-gradient(rgba(3, 6, 18, 0.25), rgba(3, 6, 18, 0.58)),
+    url("../assets/images/night-sky.jpg");
+  background-size: 88%;
+  background-position: center;
+  overflow: hidden;
+}
+
+.night-title {
+  position: absolute;
+  top: 12%;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.night-title h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 500;
+}
+
+.night-title p {
+  font-family: "Inter", sans-serif;
+  opacity: 0.82;
+}
+
+.memory-star {
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: #fff8d6;
+  font-size: 1.8rem;
+  cursor: pointer;
+  text-shadow: 0 0 18px rgba(255,255,255,0.95);
+  animation: starTwinkle 2s ease-in-out infinite alternate;
+  z-index: 5;
+}
+
+.s1 { top: 24%; left: 15%; }
+.s2 { top: 30%; right: 18%; animation-delay: .4s; }
+.s3 { top: 45%; left: 27%; animation-delay: .8s; }
+.s4 { top: 56%; right: 25%; animation-delay: 1.2s; }
+.s5 { bottom: 25%; left: 17%; animation-delay: 1.6s; }
+.s6 { bottom: 20%; right: 14%; animation-delay: 2s; }
+.s7 { top: 70%; left: 48%; animation-delay: 2.4s; }
+.s8 { top: 22%; left: 52%; animation-delay: 2.8s; }
+
+.s9 {
+  bottom: 18%;
+  left: 62%;
+  animation-delay: 3.6s;
+}
+
+.special-star {
+  font-size: 2.4rem;
+  color: #f4c56a;
+  text-shadow:
+    0 0 18px rgba(244,197,106,0.95),
+    0 0 42px rgba(244,197,106,0.65);
+}
+
+.memory-star.active-star {
+  color: #f4c56a;
+  text-shadow:
+    0 0 18px rgba(244,197,106,0.95),
+    0 0 42px rgba(244,197,106,0.65);
+}
+
+@keyframes starTwinkle {
+  from {
+    opacity: .45;
+    transform: scale(.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+}
+
+.star-memory {
+  position: fixed;
+  width: min(82vw, 360px);
+  padding: 24px 26px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.24);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 25px 80px rgba(0,0,0,.45);
+  opacity: 0;
+  transform: scale(.94);
+  transition: .35s ease;
+  z-index: 20;
+}
+
+.star-memory.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.star-memory h3 {
+  font-family: "Cormorant Garamond", serif;
+  color: #f4c56a;
+  font-size: 1.6rem;
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+.star-memory p{
+    font-family:"Cormorant Garamond",serif;
+    font-size:1.6rem;
+    line-height:1.45;
+    text-align:center;
+    color:#fffdf6;
+    white-space:pre-line;
+}
+
+.back-home-btn {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.12);
+  color: white;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(18px);
+  z-index: 30;
+}
+
+.sunrise-btn {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(244,197,106,0.45);
+  background: rgba(244,197,106,0.16);
+  color: #fff8e8;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(18px);
+  z-index: 999;
+}
